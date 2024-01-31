@@ -25,7 +25,7 @@ public class LoginPage extends Base{
     @FindBy(css = ".oxd-button")
     WebElement clickLoginButton;
 
-    @FindBy(css = "li:nth-of-type(1) > .oxd-main-menu-item")
+    @FindBy(css = "li:first-child > .oxd-main-menu-item")
     WebElement admin;
 
     @FindBy(css = ".oxd-alert-content--error")
