@@ -73,7 +73,6 @@ public class CreateLoginLogout extends Base{
         logout.click();
     }
     public boolean logoutIsDisplayed(){
-        WebElement logout = driver.findElement(By.cssSelector(".btn-outline-danger"));
         return logout.isDisplayed();
     }
     public void clickLoginExisting(){
