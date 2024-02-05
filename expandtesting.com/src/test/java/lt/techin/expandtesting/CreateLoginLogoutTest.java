@@ -1,14 +1,16 @@
 package lt.techin.expandtesting;
 
+import lt.techin.expandtesting.utils.FailureWatcher;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;
 
 import static java.lang.invoke.MethodHandles.lookup;
 import static org.slf4j.LoggerFactory.getLogger;
 
-
-public class CreateLoginLogoutTest extends BasePage{
+@ExtendWith(FailureWatcher.class)
+public class CreateLoginLogoutTest extends BaseTest {
     private static final Logger log = getLogger(lookup().lookupClass());
 
     CreateLoginLogout action;
