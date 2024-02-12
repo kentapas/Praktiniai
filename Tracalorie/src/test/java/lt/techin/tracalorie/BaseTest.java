@@ -23,13 +23,12 @@ public class BaseTest {
         driver.get(URL);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        //FailureWatcher.driver = this.driver;
         log.info("Navigated to {}", URL);
     }
 
-//    @AfterEach
-//    void tearDown(){
-//        driver.close();
-//        log.info("WebDriver closed");
-//    }
+    @AfterEach
+    void tearDown(){
+        driver.close();
+        log.info("WebDriver closed");
+    }
 }

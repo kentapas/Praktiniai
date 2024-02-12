@@ -26,6 +26,10 @@ public class AddUpdateRemove extends Base{
     WebElement update;
     @FindBy(css = ".delete-btn")
     WebElement delete;
+    @FindBy(css = ".clear-btn")
+    WebElement clear;
+    @FindBy(css = ".center-align")
+    WebElement total;
 
 
     public void addItem (String meal){
@@ -64,5 +68,11 @@ public class AddUpdateRemove extends Base{
         } catch (NoSuchElementException e) {
             return false;
         }
+    }
+    public void clearAll (){
+        clear.click();
+    }
+    public String totalCalories(){
+        return total.getText();
     }
 }

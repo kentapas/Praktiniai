@@ -11,6 +11,8 @@ public class AddUpdateRemoveTest extends BaseTest{
     private static final Logger log = getLogger(lookup().lookupClass());
 
     AddUpdateRemove add;
+    AddUpdateRemove update;
+    AddUpdateRemove delete;
 
     @Test
     void addItem(){
@@ -28,20 +30,26 @@ public class AddUpdateRemoveTest extends BaseTest{
     Assertions.assertEquals("rice: 100 Calories", add.assertSecond());
     log.info("asserted that the item was successfully added");
 
-    add.clickFirstPencil();
-    add.clearItem();
-    add.addItem("bread");
-    add.clearCalories();
-    add.addCalories("30");
-    add.clickUpdate();
-    log.info("updated the first item and calories");
-    Assertions.assertEquals("bread: 30 Calories", add.assertFirst());
+    update = new AddUpdateRemove(driver);
+    update.clickFirstPencil();
+    update.clearItem();
+    update.addItem("bread");
+    update.clearCalories();
+    update.addCalories("30");
+    update.clickUpdate();
+    log.info("updated the first item name and calories");
+    Assertions.assertEquals("bread: 30 Calories", update.assertFirst());
     log.info("asserted if the item was updated successfully");
 
-    add.clickFirstPencil();
-    add.clickDelete();
+    delete = new AddUpdateRemove(driver);
+    delete.clickFirstPencil();
+    delete.clickDelete();
     log.info("deleted first item");
-    Assertions.assertFalse(add.assertItemDeleted());
+    Assertions.assertFalse(delete.assertItemDeleted());
     log.info("asserted if the item was deleted successfully");
+    delete.clearAll();
+    log.info("cleared the list");
+    Assertions.assertEquals("Total Calories: 0", delete.totalCalories());
+    log.info("asserted that the list was cleared successfully");
     }
 }
