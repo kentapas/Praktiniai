@@ -1,5 +1,6 @@
 package lt.techin.prestashop;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -27,9 +28,9 @@ public class BaseTest {
         log.info("Navigated to {}", URL);
     }
 
-//    @AfterEach
-//    void tearDown(){
-//        driver.close();
-//        log.info("WebDriver closed");
-//    }
+    @AfterEach
+    void tearDown(){
+        driver.close();
+        log.info("WebDriver closed");
+    }
 }
